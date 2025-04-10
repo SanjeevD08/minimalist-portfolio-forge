@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -38,6 +37,7 @@ type DockProps = {
 type DockItemProps = {
   className?: string;
   children: React.ReactNode;
+  href?: string;
 };
 type DockLabelProps = {
   className?: string;
@@ -96,25 +96,25 @@ function Dock({
   return (
     <motion.div
       style={{
-        width: height, // Changed from height to width for vertical orientation
+        width: height,
         scrollbarWidth: 'none',
       }}
-      className='my-2 flex max-h-full items-center overflow-y-auto flex-col' // Changed for vertical orientation
+      className='my-2 flex max-h-full items-center overflow-y-auto flex-col'
     >
       <motion.div
-        onMouseMove={({ pageY }) => { // Changed from pageX to pageY for vertical orientation
+        onMouseMove={({ pageY }) => {
           isHovered.set(1);
-          mouseX.set(pageY); // Changed from pageX to pageY
+          mouseX.set(pageY);
         }}
         onMouseLeave={() => {
           isHovered.set(0);
           mouseX.set(Infinity);
         }}
         className={cn(
-          'mx-auto flex flex-col h-fit gap-4 rounded-2xl bg-gray-50 py-4 dark:bg-neutral-900', // Modified for vertical
+          'mx-auto flex flex-col h-fit gap-4 rounded-2xl bg-gray-50 py-4 dark:bg-neutral-900',
           className
         )}
-        style={{ width: panelHeight }} // Changed from height to width
+        style={{ width: panelHeight }}
         role='toolbar'
         aria-label='Application dock'
       >
@@ -126,7 +126,7 @@ function Dock({
   );
 }
 
-function DockItem({ children, className }: DockItemProps) {
+function DockItem({ children, className, href }: DockItemProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { distance, magnification, mouseX, spring } = useDock();
@@ -134,8 +134,8 @@ function DockItem({ children, className }: DockItemProps) {
   const isHovered = useMotionValue(0);
 
   const mouseDistance = useTransform(mouseX, (val) => {
-    const domRect = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 }; // Changed from x, width to y, height
-    return val - domRect.y - domRect.height / 2; // Changed from x, width to y, height
+    const domRect = ref.current?.getBoundingClientRect() ?? { y: 0, height: 0 };
+    return val - domRect.y - domRect.height / 2;
   });
 
   const heightTransform = useTransform(
@@ -146,10 +146,10 @@ function DockItem({ children, className }: DockItemProps) {
 
   const height = useSpring(heightTransform, spring);
 
-  return (
+  const content = (
     <motion.div
       ref={ref}
-      style={{ height }} // Changed from width to height
+      style={{ height }}
       onHoverStart={() => isHovered.set(1)}
       onHoverEnd={() => isHovered.set(0)}
       onFocus={() => isHovered.set(1)}
@@ -164,7 +164,6 @@ function DockItem({ children, className }: DockItemProps) {
     >
       {Children.map(children, (child) => {
         if (!child) return null;
-        // Pass both height and isHovered to child components
         return cloneElement(child as React.ReactElement, { 
           height, 
           isHovered 
@@ -172,13 +171,18 @@ function DockItem({ children, className }: DockItemProps) {
       })}
     </motion.div>
   );
+
+  if (href) {
+    return <a href={href} className="block">{content}</a>;
+  }
+
+  return content;
 }
 
 function DockLabel({ children, className, isHovered }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only subscribe to isHovered changes if it exists
     if (isHovered) {
       const unsubscribe = isHovered.on('change', (latest) => {
         setIsVisible(latest === 1);
@@ -194,16 +198,16 @@ function DockLabel({ children, className, isHovered }: DockLabelProps) {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, x: 0 }} // Changed from y to x for horizontal movement
-          animate={{ opacity: 1, x: 10 }} // Changed from y:-10 to x:10
-          exit={{ opacity: 0, x: 0 }} // Changed from y to x
+          initial={{ opacity: 0, x: 0 }}
+          animate={{ opacity: 1, x: 10 }}
+          exit={{ opacity: 0, x: 0 }}
           transition={{ duration: 0.2 }}
           className={cn(
-            'absolute -right-20 top-1/2 w-fit whitespace-pre rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white', // Changed positioning
+            'absolute -right-20 top-1/2 w-fit whitespace-pre rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white',
             className
           )}
           role='tooltip'
-          style={{ y: '-50%' }} // Changed from x to y
+          style={{ y: '-50%' }}
         >
           {children}
         </motion.div>
@@ -213,12 +217,10 @@ function DockLabel({ children, className, isHovered }: DockLabelProps) {
 }
 
 function DockIcon({ children, className, height }: DockIconProps) {
-  // Only create the transform if height is defined
   const heightTransform = height ? useTransform(height, (val) => val / 2) : null;
 
   return (
     <motion.div
-      // Use conditional to prevent errors if heightTransform is null
       style={heightTransform ? { height: heightTransform } : undefined}
       className={cn('flex items-center justify-center', className)}
     >
