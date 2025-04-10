@@ -9,7 +9,7 @@ interface DockProps {
 
 export function Dock({ children, className }: DockProps) {
   return (
-    <div className={cn("flex flex-col gap-3 p-2", className)}>
+    <div className={cn("flex gap-4 p-4 rounded-2xl bg-black/80 backdrop-blur-lg", className)}>
       {children}
     </div>
   );
@@ -26,7 +26,7 @@ export function DockItem({ children, className }: DockItemProps) {
   return (
     <div
       className={cn(
-        "flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-all duration-300 ease-in-out hover:scale-125 shadow-md hover:shadow-lg",
+        "relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gray-800/90 transition-all duration-300 ease-in-out hover:scale-125 shadow-md hover:shadow-lg",
         isHovered ? "animate-pulse" : "animate-float",
         className
       )}
@@ -43,7 +43,7 @@ interface DockIconProps {
 }
 
 export function DockIcon({ children }: DockIconProps) {
-  return <div className="h-6 w-6">{children}</div>;
+  return <div className="h-6 w-6 text-white">{children}</div>;
 }
 
 interface DockLabelProps {
@@ -52,7 +52,7 @@ interface DockLabelProps {
 
 export function DockLabel({ children }: DockLabelProps) {
   return (
-    <div className="absolute left-full ml-2 hidden whitespace-nowrap rounded-md bg-gray-900 px-2 py-1 text-xs text-white group-hover:block">
+    <div className="absolute -top-10 left-1/2 -translate-x-1/2 hidden whitespace-nowrap rounded-md bg-black/90 px-3 py-1.5 text-xs text-white group-hover:block">
       {children}
     </div>
   );
