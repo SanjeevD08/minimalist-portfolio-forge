@@ -26,7 +26,8 @@ export function DockItem({ children, className }: DockItemProps) {
   return (
     <div
       className={cn(
-        "flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-all duration-300 ease-in-out hover:scale-125",
+        "flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-all duration-300 ease-in-out hover:scale-125 shadow-md hover:shadow-lg",
+        isHovered ? "animate-pulse" : "animate-float",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
