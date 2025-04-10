@@ -2,8 +2,39 @@
 import Section from '@/components/Section';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { useEffect, useRef } from 'react';
 
 const Experience = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const slideElements = entry.target.querySelectorAll('.slide-from-left');
+            slideElements.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('active');
+              }, index * 200);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const experiences = [
     {
       role: 'Senior Position',
@@ -41,11 +72,11 @@ const Experience = () => {
   ];
 
   return (
-    <Section id="experience" className="bg-secondary/50">
+    <Section id="experience" className="bg-secondary/30" ref={sectionRef}>
       <h2 className="section-title reveal">Work Experience</h2>
       <div className="space-y-8 mt-12">
         {experiences.map((exp, index) => (
-          <Card key={index} className="reveal border-0 shadow-sm overflow-hidden">
+          <Card key={index} className="slide-from-left border-0 shadow-sm overflow-hidden glass-card">
             <div className="grid grid-cols-1 md:grid-cols-4">
               <CardHeader className="md:border-r border-border">
                 <CardTitle>{exp.role}</CardTitle>

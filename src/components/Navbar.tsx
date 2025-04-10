@@ -36,44 +36,40 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={cn(
-      "fixed w-full z-50 transition-all duration-300",
-      scrolled 
-        ? theme === 'dark' 
-          ? "py-3 bg-background/90 backdrop-blur-sm shadow-md border-b border-border" 
-          : "py-3 bg-white shadow-md" 
-        : "py-6 bg-transparent"
-    )}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-xl font-bold tracking-tighter text-foreground">Portfolio.</a>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
-            <a 
-              key={link.href}
-              href={link.href}
-              className="text-foreground/90 hover:text-foreground font-medium transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+    <>
+      <nav className={cn(
+        "centered-navbar transition-all duration-300",
+        scrolled ? "shadow-md" : ""
+      )}>
+        <div className="flex items-center justify-center">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-6">
+            {navLinks.map((link) => (
+              <a 
+                key={link.href}
+                href={link.href}
+                className="text-foreground/90 hover:text-foreground font-medium transition-colors text-sm px-2 py-1"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          
+          {/* Mobile Navigation Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </Button>
         </div>
-        
-        {/* Mobile Navigation Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
-      </div>
+      </nav>
       
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "md:hidden fixed inset-0 bg-background z-40 transform transition-transform duration-300 ease-in-out pt-24",
+        "md:hidden fixed inset-0 bg-background/90 backdrop-blur-md z-40 transform transition-transform duration-300 ease-in-out pt-24",
         isOpen ? "translate-x-0" : "translate-x-full"
       )}>
         <div className="flex flex-col items-center gap-8 p-8">
@@ -89,7 +85,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 

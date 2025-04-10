@@ -2,31 +2,37 @@
 import Section from '@/components/Section';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Code, FileText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Project Name 1',
-      description: 'A comprehensive solution for [problem] that helps users [benefit]. Built with modern technologies and best practices.',
-      tags: ['React', 'Node.js', 'MongoDB'],
+      title: 'Project Infinity',
+      description: 'A SaaS platform for businesses to streamline their operations with real-time analytics and comprehensive reporting tools. Built with a focus on user experience and scalability.',
+      tags: ['React', 'Node.js', 'MongoDB', 'AWS'],
       image: '/placeholder.svg',
-      link: '#'
+      liveLink: '#',
+      codeLink: '#',
+      caseStudyLink: '#'
     },
     {
-      title: 'Project Name 2',
-      description: 'An innovative approach to [industry challenge]. This project demonstrates [skills or techniques].',
-      tags: ['TypeScript', 'Express', 'PostgreSQL'],
+      title: 'Data Visualizer Pro',
+      description: 'An interactive data visualization tool that helps users understand complex datasets through customizable charts and graphs. Includes export options and sharing capabilities.',
+      tags: ['TypeScript', 'D3.js', 'Express', 'PostgreSQL'],
       image: '/placeholder.svg',
-      link: '#'
+      liveLink: '#',
+      codeLink: '#',
+      caseStudyLink: '#'
     },
     {
-      title: 'Project Name 3',
-      description: 'A collaborative effort to create [solution]. Features include [key features] that provide [benefits].',
-      tags: ['Python', 'Flask', 'AWS'],
+      title: 'Smart Home Hub',
+      description: 'A central control system for smart home devices that integrates with various IoT products. Features include automation rules, voice control, and mobile app remote access.',
+      tags: ['Python', 'Flask', 'React Native', 'Firebase'],
       image: '/placeholder.svg',
-      link: '#'
+      liveLink: '#',
+      codeLink: '#',
+      caseStudyLink: '#'
     }
   ];
 
@@ -38,9 +44,9 @@ const Projects = () => {
         unique challenges and solutions that I've implemented.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <Card key={index} className="reveal overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md">
+          <Card key={index} className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md">
             <div className="aspect-video bg-muted overflow-hidden">
               <img 
                 src={project.image} 
@@ -53,18 +59,33 @@ const Projects = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, i) => (
-                  <Badge key={i} variant="secondary">{tag}</Badge>
+                  <Badge key={i} variant="secondary" className="bg-primary/10 text-primary">{tag}</Badge>
                 ))}
               </div>
             </CardContent>
-            <CardFooter>
-              <Button asChild variant="outline" className="w-full">
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                  View Project <ExternalLink size={16} />
-                </a>
-              </Button>
+            <CardFooter className="flex flex-col space-y-2">
+              <div className="grid grid-cols-3 gap-2 w-full">
+                <Button asChild variant="outline" size="sm" className="flex items-center gap-1">
+                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={14} />
+                    Live
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="sm" className="flex items-center gap-1">
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                    <Code size={14} />
+                    Code
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="sm" className="flex items-center gap-1">
+                  <a href={project.caseStudyLink} target="_blank" rel="noopener noreferrer">
+                    <FileText size={14} />
+                    Case Study
+                  </a>
+                </Button>
+              </div>
             </CardFooter>
           </Card>
         ))}

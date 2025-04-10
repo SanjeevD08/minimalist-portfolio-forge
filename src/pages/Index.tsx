@@ -8,6 +8,7 @@ import Projects from '@/components/sections/Projects';
 import Resume from '@/components/sections/Resume';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
+import { HorizontalDock } from '@/components/HorizontalDock';
 
 const Index = () => {
   useEffect(() => {
@@ -23,15 +24,15 @@ const Index = () => {
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal, .slide-from-left').forEach((el) => observer.observe(el));
 
     return () => {
-      document.querySelectorAll('.reveal').forEach((el) => observer.unobserve(el));
+      document.querySelectorAll('.reveal, .slide-from-left').forEach((el) => observer.unobserve(el));
     };
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground">
+    <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
@@ -42,6 +43,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <HorizontalDock />
     </div>
   );
 };

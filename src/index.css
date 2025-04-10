@@ -45,6 +45,12 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Added pastel color variables */
+    --pastel-green: 84 47% 93%;
+    --pastel-blue: 210 60% 93%;
+    --pastel-pink: 340 60% 93%;
+    --pastel-yellow: 45 100% 90%;
   }
 
   .dark {
@@ -84,6 +90,12 @@
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 240 4.9% 83.9%;
+    
+    /* Adjusted pastel colors for dark mode */
+    --pastel-green: 84 30% 20%;
+    --pastel-blue: 210 40% 20%;
+    --pastel-pink: 340 40% 20%;
+    --pastel-yellow: 45 70% 20%;
   }
 
   * {
@@ -93,6 +105,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(135deg, hsl(var(--pastel-blue) / 0.4) 0%, hsl(var(--pastel-pink) / 0.2) 100%);
+    background-attachment: fixed;
   }
 
   .reveal {
@@ -104,6 +118,17 @@
   .reveal.active {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  .slide-from-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .slide-from-left.active {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .section-title {
@@ -129,5 +154,14 @@
 
   .animate-float {
     animation: float 3s ease-in-out infinite;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/30 dark:bg-black/20 border border-white/20 dark:border-white/10 shadow-lg;
+  }
+  
+  .centered-navbar {
+    @apply fixed top-4 left-1/2 transform -translate-x-1/2 z-50 rounded-full px-4 py-2;
+    @apply glass-card;
   }
 }
