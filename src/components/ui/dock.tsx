@@ -42,10 +42,12 @@ type DockItemProps = {
 type DockLabelProps = {
   className?: string;
   children: React.ReactNode;
+  isHovered?: MotionValue<number>;
 };
 type DockIconProps = {
   className?: string;
   children: React.ReactNode;
+  height?: MotionValue<number>;
 };
 
 type DocContextType = {
@@ -161,7 +163,8 @@ function DockItem({ children, className }: DockItemProps) {
       aria-haspopup='true'
     >
       {Children.map(children, (child) => {
-        // Ensure we're passing both height and isHovered
+        if (!child) return null;
+        // Pass both height and isHovered to child components
         return cloneElement(child as React.ReactElement, { 
           height, 
           isHovered 
@@ -171,17 +174,20 @@ function DockItem({ children, className }: DockItemProps) {
   );
 }
 
-function DockLabel({ children, className, ...rest }: DockLabelProps) {
-  const restProps = rest as Record<string, unknown>;
-  const isHovered = restProps['isHovered'] as MotionValue<number>;
+function DockLabel({ children, className, isHovered }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = isHovered.on('change', (latest) => {
-      setIsVisible(latest === 1);
-    });
-
-    return () => unsubscribe();
+    // Only subscribe to isHovered changes if it exists
+    if (isHovered) {
+      const unsubscribe = isHovered.on('change', (latest) => {
+        setIsVisible(latest === 1);
+      });
+      
+      return () => unsubscribe();
+    }
+    
+    return undefined;
   }, [isHovered]);
 
   return (
@@ -206,11 +212,7 @@ function DockLabel({ children, className, ...rest }: DockLabelProps) {
   );
 }
 
-function DockIcon({ children, className, ...rest }: DockIconProps) {
-  const restProps = rest as Record<string, unknown>;
-  // Change from 'width' to 'height' and provide a fallback value to prevent undefined errors
-  const height = restProps['height'] as MotionValue<number>;
-
+function DockIcon({ children, className, height }: DockIconProps) {
   // Only create the transform if height is defined
   const heightTransform = height ? useTransform(height, (val) => val / 2) : null;
 
