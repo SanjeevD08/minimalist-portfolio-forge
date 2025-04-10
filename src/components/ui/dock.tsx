@@ -23,8 +23,8 @@ import {
 import { cn } from '@/lib/utils';
 
 const DOCK_HEIGHT = 128;
-const DEFAULT_MAGNIFICATION = 60; // Reduced for more subtle effect
-const DEFAULT_DISTANCE = 120; // Reduced for faster response
+const DEFAULT_MAGNIFICATION = 80;
+const DEFAULT_DISTANCE = 150;
 const DEFAULT_PANEL_HEIGHT = 64;
 
 type DockProps = {
@@ -78,7 +78,7 @@ function useDock() {
 function Dock({
   children,
   className,
-  spring = { mass: 0.1, stiffness: 200, damping: 15 }, // More responsive spring
+  spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   panelHeight = DEFAULT_PANEL_HEIGHT,
@@ -111,7 +111,7 @@ function Dock({
           mouseX.set(Infinity);
         }}
         className={cn(
-          'mx-auto flex flex-col h-fit gap-4 rounded-2xl py-4', // Removed background color
+          'mx-auto flex flex-col h-fit gap-4 rounded-2xl bg-gray-50 py-4 dark:bg-neutral-900', // Modified for vertical
           className
         )}
         style={{ width: panelHeight }} // Changed from height to width
@@ -144,13 +144,7 @@ function DockItem({ children, className }: DockItemProps) {
     [40, magnification, 40]
   );
 
-  // More responsive spring for item scaling
-  const height = useSpring(heightTransform, { 
-    mass: 0.2, 
-    stiffness: 300, 
-    damping: 15,
-    ...spring 
-  });
+  const height = useSpring(heightTransform, spring);
 
   return (
     <motion.div
@@ -203,7 +197,7 @@ function DockLabel({ children, className, isHovered }: DockLabelProps) {
           initial={{ opacity: 0, x: 0 }} // Changed from y to x for horizontal movement
           animate={{ opacity: 1, x: 10 }} // Changed from y:-10 to x:10
           exit={{ opacity: 0, x: 0 }} // Changed from y to x
-          transition={{ duration: 0.15 }} // Faster tooltip appearance
+          transition={{ duration: 0.2 }}
           className={cn(
             'absolute -right-20 top-1/2 w-fit whitespace-pre rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white', // Changed positioning
             className
