@@ -38,17 +38,18 @@ const Navbar = () => {
   return (
     <>
       <nav className={cn(
-        "centered-navbar transition-all duration-300",
-        scrolled ? "shadow-md" : ""
+        "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 rounded-full px-6 py-3",
+        "glass-card backdrop-blur-md bg-background/30 dark:bg-background/30 transition-all duration-300",
+        scrolled ? "shadow-lg" : ""
       )}>
         <div className="flex items-center justify-center">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <a 
                 key={link.href}
                 href={link.href}
-                className="text-foreground/90 hover:text-foreground font-medium transition-colors text-sm px-2 py-1"
+                className="text-foreground hover:text-primary font-medium transition-colors text-sm px-2 py-1"
               >
                 {link.label}
               </a>
@@ -77,7 +78,7 @@ const Navbar = () => {
             <a 
               key={link.href}
               href={link.href}
-              className="text-xl text-foreground hover:text-foreground/70 font-medium"
+              className="text-xl text-foreground hover:text-primary font-medium"
               onClick={() => setIsOpen(false)}
             >
               {link.label}

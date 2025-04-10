@@ -34,7 +34,7 @@ const Hero = () => {
               <Mail className="w-5 h-5" />
             </a>
             <a href="#" className="p-2 rounded-full glass-card hover:scale-110 transition-transform duration-200">
-              <BookOpen className="w-5 h-5" /> {/* Medium icon */}
+              <BookOpen className="w-5 h-5" />
             </a>
           </div>
         </div>
