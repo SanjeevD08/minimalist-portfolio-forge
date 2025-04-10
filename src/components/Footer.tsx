@@ -1,15 +1,7 @@
 
 import { Button } from '@/components/ui/button';
-import { ArrowUp } from 'lucide-react';
 
-const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-  
+const Footer = () => {  
   return (
     <footer className="py-8 px-4 border-t border-border">
       <div className="container mx-auto">
@@ -19,15 +11,6 @@ const Footer = () => {
               © {new Date().getFullYear()} Your Name. All rights reserved.
             </p>
           </div>
-          
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={scrollToTop}
-            className="rounded-full h-10 w-10"
-          >
-            <ArrowUp size={18} />
-          </Button>
         </div>
       </div>
     </footer>

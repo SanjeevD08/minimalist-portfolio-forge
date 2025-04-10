@@ -8,26 +8,28 @@ import Projects from '@/components/sections/Projects';
 import Resume from '@/components/sections/Resume';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
+import BackToTopButton from '@/components/BackToTopButton';
 import { HorizontalDock } from '@/components/HorizontalDock';
 
 const Index = () => {
   useEffect(() => {
-    // Initialize intersection observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    document.querySelectorAll('.reveal, .slide-from-left').forEach((el) => observer.observe(el));
-
+    // Enhance keyboard accessibility
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('user-is-tabbing');
+      }
+    };
+    
+    const handleMouseDown = () => {
+      document.body.classList.remove('user-is-tabbing');
+    };
+    
+    window.addEventListener('keydown', handleTabKey);
+    window.addEventListener('mousedown', handleMouseDown);
+    
     return () => {
-      document.querySelectorAll('.reveal, .slide-from-left').forEach((el) => observer.unobserve(el));
+      window.removeEventListener('keydown', handleTabKey);
+      window.removeEventListener('mousedown', handleMouseDown);
     };
   }, []);
 
@@ -43,6 +45,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTopButton />
       <HorizontalDock />
     </div>
   );
