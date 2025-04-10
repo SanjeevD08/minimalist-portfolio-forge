@@ -4,17 +4,12 @@ import {
   Component,
   HomeIcon,
   Mail,
-  Moon,
   Package,
   ScrollText,
-  Sun,
 } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 
 export function VerticalDock() {
-  const { theme, toggleTheme } = useTheme();
-  
   const data = [
     {
       title: 'Home',
@@ -63,16 +58,6 @@ export function VerticalDock() {
       ),
       href: '#contact',
       onClick: undefined,
-    },
-    {
-      title: theme === 'dark' ? 'Light Mode' : 'Dark Mode',
-      icon: theme === 'dark' ? (
-        <Sun className='h-full w-full text-neutral-600 dark:text-neutral-300' />
-      ) : (
-        <Moon className='h-full w-full text-neutral-600 dark:text-neutral-300' />
-      ),
-      href: '#',
-      onClick: toggleTheme,
     },
   ];
 
