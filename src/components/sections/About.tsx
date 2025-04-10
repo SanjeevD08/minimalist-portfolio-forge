@@ -80,10 +80,10 @@ const About = () => {
       <Section id="about">
         <h2 className="section-title mb-10">About Me</h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Profile Photo Column - LEFT SIDE */}
-          <div ref={photoRef} className="lg:col-span-4 flex flex-col items-center justify-start">
-            <div className="w-64 h-64 rounded-full overflow-hidden glass-card p-1">
+          <div ref={photoRef} className="md:col-span-4 flex flex-col items-center justify-center">
+            <div className="w-64 h-64 rounded-full overflow-hidden glass-card p-1 relative mb-8 md:mb-0">
               <Avatar className="w-full h-full rounded-full">
                 <AvatarImage 
                   alt="Profile Photo" 
@@ -98,7 +98,7 @@ const About = () => {
           </div>
           
           {/* About Me Text - RIGHT SIDE */}
-          <div ref={contentRef} className="lg:col-span-8">
+          <div ref={contentRef} className="md:col-span-8">
             <div className="space-y-4">
               <p className="text-muted-foreground">
                 With a background in [your field], I have developed expertise in [your specialties]. 
