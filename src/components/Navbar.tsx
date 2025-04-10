@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,10 +38,14 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed w-full z-50 transition-all duration-300",
-      scrolled ? "py-3 bg-white shadow-md" : "py-6 bg-transparent"
+      scrolled 
+        ? theme === 'dark' 
+          ? "py-3 bg-background/90 backdrop-blur-sm shadow-md border-b border-border" 
+          : "py-3 bg-white shadow-md" 
+        : "py-6 bg-transparent"
     )}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="text-xl font-bold tracking-tighter">Portfolio.</a>
+        <a href="#home" className="text-xl font-bold tracking-tighter text-foreground">Portfolio.</a>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
@@ -47,7 +53,7 @@ const Navbar = () => {
             <a 
               key={link.href}
               href={link.href}
-              className="text-gray-700 hover:text-black font-medium transition-colors"
+              className="text-foreground/90 hover:text-foreground font-medium transition-colors"
             >
               {link.label}
             </a>
@@ -58,7 +64,7 @@ const Navbar = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="md:hidden text-foreground"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -67,7 +73,7 @@ const Navbar = () => {
       
       {/* Mobile Navigation Menu */}
       <div className={cn(
-        "md:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out pt-24",
+        "md:hidden fixed inset-0 bg-background z-40 transform transition-transform duration-300 ease-in-out pt-24",
         isOpen ? "translate-x-0" : "translate-x-full"
       )}>
         <div className="flex flex-col items-center gap-8 p-8">
@@ -75,7 +81,7 @@ const Navbar = () => {
             <a 
               key={link.href}
               href={link.href}
-              className="text-xl text-gray-800 hover:text-black font-medium"
+              className="text-xl text-foreground hover:text-foreground/70 font-medium"
               onClick={() => setIsOpen(false)}
             >
               {link.label}
