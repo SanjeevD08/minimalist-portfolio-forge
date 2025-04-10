@@ -70,7 +70,7 @@ export function VerticalDock() {
         {data.map((item, idx) => (
           <DockItem
             key={idx}
-            className={`group relative aspect-square rounded-full bg-gray-100/50 dark:bg-neutral-800/50 hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all delay-${idx * 100}`}
+            className={`group relative aspect-square rounded-full bg-gray-100/50 dark:bg-neutral-800/50 hover:bg-gray-200 dark:hover:bg-neutral-700 transition-all`}
           >
             <a href={item.href} className="flex items-center justify-center w-full h-full">
               <DockLabel>{item.title}</DockLabel>

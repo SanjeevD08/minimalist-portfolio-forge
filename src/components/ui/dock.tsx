@@ -136,13 +136,13 @@ function DockItem({ children, className }: DockItemProps) {
     return val - domRect.y - domRect.height / 2; // Changed from x, width to y, height
   });
 
-  const heightTransform = useTransform( // Changed from widthTransform to heightTransform
+  const heightTransform = useTransform(
     mouseDistance,
     [-distance, 0, distance],
     [40, magnification, 40]
   );
 
-  const height = useSpring(heightTransform, spring); // Changed from width to height
+  const height = useSpring(heightTransform, spring);
 
   return (
     <motion.div
@@ -160,9 +160,13 @@ function DockItem({ children, className }: DockItemProps) {
       role='button'
       aria-haspopup='true'
     >
-      {Children.map(children, (child) =>
-        cloneElement(child as React.ReactElement, { height, isHovered }) // Changed from width to height
-      )}
+      {Children.map(children, (child) => {
+        // Ensure we're passing both height and isHovered
+        return cloneElement(child as React.ReactElement, { 
+          height, 
+          isHovered 
+        });
+      })}
     </motion.div>
   );
 }
@@ -189,7 +193,7 @@ function DockLabel({ children, className, ...rest }: DockLabelProps) {
           exit={{ opacity: 0, x: 0 }} // Changed from y to x
           transition={{ duration: 0.2 }}
           className={cn(
-            'absolute -right-6 top-1/2 w-fit whitespace-pre rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white', // Changed positioning
+            'absolute -right-20 top-1/2 w-fit whitespace-pre rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs text-neutral-700 dark:border-neutral-900 dark:bg-neutral-800 dark:text-white', // Changed positioning
             className
           )}
           role='tooltip'
@@ -204,13 +208,16 @@ function DockLabel({ children, className, ...rest }: DockLabelProps) {
 
 function DockIcon({ children, className, ...rest }: DockIconProps) {
   const restProps = rest as Record<string, unknown>;
-  const height = restProps['height'] as MotionValue<number>; // Changed from width to height
+  // Change from 'width' to 'height' and provide a fallback value to prevent undefined errors
+  const height = restProps['height'] as MotionValue<number>;
 
-  const heightTransform = useTransform(height, (val) => val / 2); // Changed from widthTransform to heightTransform
+  // Only create the transform if height is defined
+  const heightTransform = height ? useTransform(height, (val) => val / 2) : null;
 
   return (
     <motion.div
-      style={{ height: heightTransform }} // Changed from width to height
+      // Use conditional to prevent errors if heightTransform is null
+      style={heightTransform ? { height: heightTransform } : undefined}
       className={cn('flex items-center justify-center', className)}
     >
       {children}
