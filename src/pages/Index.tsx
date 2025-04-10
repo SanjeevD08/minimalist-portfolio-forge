@@ -8,7 +8,7 @@ import Projects from '@/components/sections/Projects';
 import Resume from '@/components/sections/Resume';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
-import { HorizontalDock } from '@/components/HorizontalDock';
+import { VerticalDock } from '@/components/VerticalDock';
 
 const Index = () => {
   useEffect(() => {
@@ -34,7 +34,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <HorizontalDock />
+      <VerticalDock />
       <main>
         <Hero />
         <About />
