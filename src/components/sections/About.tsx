@@ -1,17 +1,9 @@
-
 import Section from '@/components/Section';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
 const About = () => {
-  const skills = [
-    'JavaScript', 'React', 'TypeScript', 'Node.js', 
-    'Python', 'SQL', 'Git', 'Figma',
-    'Product Management', 'UI/UX Design', 'Data Analysis'
-  ];
-
-  return (
-    <Section id="about">
+  const skills = ['JavaScript', 'React', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Git', 'Figma', 'Product Management', 'UI/UX Design', 'Data Analysis'];
+  return <Section id="about">
       <h2 className="section-title reveal mb-10">About Me</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -19,7 +11,7 @@ const About = () => {
         <div className="lg:col-span-4 flex flex-col items-center justify-start order-1">
           <div className="w-64 h-64 rounded-full overflow-hidden glass-card p-1 slide-from-left">
             <Avatar className="w-full h-full rounded-full">
-              <AvatarImage src="/lovable-uploads/bded5035-7033-4a35-991f-e08e3d46e5be.png" alt="Profile Photo" className="w-full h-full object-cover" />
+              <AvatarImage alt="Profile Photo" src="/lovable-uploads/7a691368-6e45-4821-b37c-8ac9fbdddacd.jpg" className="w-full h-full object-cover" />
               <AvatarFallback className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
                 <span>Your Photo</span>
               </AvatarFallback>
@@ -50,20 +42,13 @@ const About = () => {
             <h3 className="text-xl font-semibold mb-4">My Skills</h3>
             <Separator className="mb-6" />
             <div className="flex flex-wrap gap-2">
-              {skills.map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1.5 glass-card rounded-md font-medium text-sm"
-                >
+              {skills.map((skill, index) => <span key={index} className="px-3 py-1.5 glass-card rounded-md font-medium text-sm">
                   {skill}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
         </div>
       </div>
-    </Section>
-  );
+    </Section>;
 };
-
 export default About;
