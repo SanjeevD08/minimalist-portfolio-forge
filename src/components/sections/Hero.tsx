@@ -1,5 +1,11 @@
-import { ArrowDown, Linkedin, Github, Mail, BookOpen, FileText, Briefcase, Send } from 'lucide-react';
+import { ArrowDown, Linkedin, Github, Mail, BookOpen, FileText, Briefcase, Send, Notebook, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const Hero = () => {
   return <section id="home" className="min-h-screen flex flex-col justify-center pt-20 px-4">
@@ -36,18 +42,85 @@ const Hero = () => {
         
         {/* Social Media Icons */}
         <div className="flex space-x-4 mt-8">
-          <a href="#" className="p-2 rounded-full glass-card hover:scale-110 transition-transform duration-200">
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a href="#" className="p-2 rounded-full glass-card hover:scale-110 transition-transform duration-200">
-            <Github className="w-5 h-5" />
-          </a>
-          <a href="#" className="p-2 rounded-full glass-card hover:scale-110 transition-transform duration-200">
-            <Mail className="w-5 h-5" />
-          </a>
-          <a href="#" className="p-2 rounded-full glass-card hover:scale-110 transition-transform duration-200">
-            <BookOpen className="w-5 h-5" />
-          </a>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href="https://www.linkedin.com/in/sanjeev-dhanush08/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass-card hover:scale-110 transition-all duration-200 hover:bg-blue-500/20 hover:shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Connect on LinkedIn</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href="https://github.com/SanjeevD08" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass-card hover:scale-110 transition-all duration-200 hover:bg-gray-500/20 hover:shadow-[0_0_10px_rgba(75,85,99,0.5)]"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Check out my GitHub</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href="mailto:challapalli.s@northeastern.edu"
+                  className="p-2 rounded-full glass-card hover:scale-110 transition-all duration-200 hover:bg-red-500/20 hover:shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+                >
+                  <Mail className="w-5 h-5" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Send me an email</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href="https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass-card hover:scale-110 transition-all duration-200 hover:bg-gray-500/20 hover:shadow-[0_0_10px_rgba(75,85,99,0.5)]"
+                >
+                  <Notebook className="w-5 h-5" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>View my Notion Portfolio</p>
+              </TooltipContent>
+            </Tooltip>
+
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href="https://medium.com/@challapalli.s" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full glass-card hover:scale-110 transition-all duration-200 hover:bg-green-500/20 hover:shadow-[0_0_10px_rgba(34,197,94,0.5)]"
+                >
+                  <PenTool className="w-5 h-5" />
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Read my Blog on Medium</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </div>
     </div>
