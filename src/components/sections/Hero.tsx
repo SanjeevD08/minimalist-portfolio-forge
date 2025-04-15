@@ -130,11 +130,11 @@ const Hero = () => {
         {/* Hero Illustration */}
         <div className="relative hidden lg:block">
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="relative z-10 flex items-center justify-center">
+          <div className="relative z-10">
             <img
               src="/lovable-uploads/56d3e831-e438-4a5c-843a-3b8b43f4c1cb.png"
               alt="Data Analytics Illustration"
-              className="w-full max-w-[85%] mx-auto animate-float opacity-85 shadow-md rounded-xl p-6 bg-white/5 dark:bg-black/10"
+              className="w-full max-w-[600px] mx-auto animate-float"
             />
           </div>
         </div>
