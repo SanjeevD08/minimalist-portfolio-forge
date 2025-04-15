@@ -1,3 +1,4 @@
+
 import { ArrowDown, Linkedin, Github, Mail, BookOpen, FileText, Briefcase, Send, Notebook, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -130,11 +131,11 @@ const Hero = () => {
         {/* Hero Illustration */}
         <div className="relative hidden lg:block">
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="relative z-10">
+          <div className="relative z-10 flex items-center justify-center">
             <img
               src="/lovable-uploads/56d3e831-e438-4a5c-843a-3b8b43f4c1cb.png"
               alt="Data Analytics Illustration"
-              className="w-full max-w-[600px] mx-auto animate-float"
+              className="w-full max-w-[600px] mx-auto animate-float opacity-90 shadow-lg rounded-xl p-4 bg-white/5 dark:bg-black/10"
             />
           </div>
         </div>
