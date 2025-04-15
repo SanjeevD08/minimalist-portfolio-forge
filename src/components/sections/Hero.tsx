@@ -7,9 +7,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Hi, I'm <span className="text-primary">Sanjeev</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-10 leading-relaxed">
-            A passionate professional dedicated to creating meaningful and impactful experiences.
-          </p>
+          <p className="text-xl text-muted-foreground mb-10 leading-relaxed md:text-2xl font-semibold">Supply Chain & Business Analytics Professional</p>
           <div className="flex flex-wrap gap-4 mb-10">
             <Button asChild size="lg" className="glass-card bg-transparent hover:bg-primary/10">
               
