@@ -1,4 +1,3 @@
-
 import { ArrowDown, Linkedin, Github, Mail, BookOpen, FileText, Briefcase, Send, Notebook, PenTool } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -135,7 +134,7 @@ const Hero = () => {
             <img
               src="/lovable-uploads/56d3e831-e438-4a5c-843a-3b8b43f4c1cb.png"
               alt="Data Analytics Illustration"
-              className="w-full max-w-[600px] mx-auto animate-float opacity-90 shadow-lg rounded-xl p-4 bg-white/5 dark:bg-black/10"
+              className="w-full max-w-[85%] mx-auto animate-float opacity-85 shadow-md rounded-xl p-6 bg-white/5 dark:bg-black/10"
             />
           </div>
         </div>
