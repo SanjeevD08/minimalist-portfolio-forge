@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Section from '@/components/Section';
 import { Card, CardContent } from '@/components/ui/card';
@@ -138,8 +137,8 @@ const Projects = () => {
         <div className="flex justify-center mt-8">
           <Button 
             onClick={() => setShowAllProjects(!showAllProjects)}
-            variant="outline"
-            className="group"
+            variant="secondary"
+            className="group bg-primary/10 text-primary shadow-sm hover:bg-primary/20 border border-primary/20"
           >
             {showAllProjects ? (
               <>
