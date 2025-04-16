@@ -4,14 +4,15 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Code, FileText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Project Infinity',
-      description: 'A SaaS platform for businesses to streamline their operations with real-time analytics and comprehensive reporting tools. Built with a focus on user experience and scalability.',
-      tags: ['React', 'Node.js', 'MongoDB', 'AWS'],
-      image: '/placeholder.svg',
+      title: 'Retail Store Performance Analysis',
+      description: 'A comprehensive analytics project that measures and visualizes retail store performance metrics. Helped identify key growth opportunities and operational inefficiencies across multiple store locations.',
+      tags: ['Python', 'SQL', 'Tableau', 'Excel'],
+      image: '/lovable-uploads/3464853a-6072-4a83-8ee8-b7e678764433.png',
       liveLink: '#',
       codeLink: '#',
       caseStudyLink: '#'
@@ -48,11 +49,13 @@ const Projects = () => {
         {projects.map((project, index) => (
           <Card key={index} className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md">
             <div className="aspect-video bg-muted overflow-hidden">
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              />
+              <AspectRatio ratio={16 / 9}>
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </AspectRatio>
             </div>
             <CardHeader>
               <CardTitle>{project.title}</CardTitle>
