@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { FileText } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useToast } from '@/hooks/use-toast';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -24,18 +24,18 @@ const FloatingResumeButton = () => {
         <Tooltip>
           <TooltipTrigger asChild>
             <motion.a
-              href="/resume.pdf" // Replace with your actual resume URL
+              href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleDownload}
               initial={{ scale: 0.8 }}
               animate={{ 
                 scale: 1,
-                backgroundColor: isHovered ? 'hsla(var(--primary)/0.3)' : 'hsla(var(--primary)/0.1)'
+                backgroundColor: isHovered ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)'
               }}
               whileHover={{ 
                 scale: 1.1,
-                backgroundColor: 'hsla(var(--primary)/0.3)'
+                backgroundColor: 'rgba(0, 0, 0, 0.3)'
               }}
               whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setIsHovered(true)}
