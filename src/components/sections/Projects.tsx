@@ -76,6 +76,7 @@ const Projects = () => {
     },
   ];
 
+  // Always show 8 projects initially, then show all when the button is clicked
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 8);
 
   return (
@@ -132,6 +133,7 @@ const Projects = () => {
         ))}
       </div>
 
+      {/* Show the button if there are more than 8 projects */}
       {projects.length > 8 && (
         <div className="flex justify-center mt-8">
           <Button 
