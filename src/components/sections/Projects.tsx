@@ -1,6 +1,6 @@
 
 import Section from '@/components/Section';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Code, ExternalLink } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -15,19 +15,26 @@ const Projects = () => {
       caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d90805d9998cc4fb47c7259&pm=c'
     },
     {
-      title: 'Data Visualizer Pro',
-      subtitle: 'Interactive Data Tool',
-      description: 'Created an interactive visualization tool with customizable charts, export options, and sharing capabilities.',
-      tags: ['TypeScript', 'D3.js', 'Express', 'PostgreSQL'],
-      caseStudyLink: 'https://notion.so/data-visualizer'
+      title: 'Strategic Negotiation and Partnership',
+      subtitle: 'Simply Clean & Northeastern University',
+      description: 'Examined negotiation process, key decision factors, contract finalization, and long-term value creation from this strategic partnership.',
+      tags: ['RFQ\'S', 'Market Dojo'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d9080528c3cd1cd4c0c4e4f&pm=c'
     },
     {
-      title: 'Smart Home Hub',
-      subtitle: 'IoT Device Integration',
-      description: 'Developed a central control system for smart home devices with automation rules and mobile app access.',
-      tags: ['Python', 'Flask', 'React Native', 'Firebase'],
-      caseStudyLink: 'https://notion.so/smart-home-hub'
-    }
+      title: 'Strategic Pricing & Inventory',
+      subtitle: 'PittaRosso Retail Optimization',
+      description: 'Analyzed pricing strategy, promotional effectiveness, and inventory management to enhance business performance in a competitive retail landscape.',
+      tags: ['Retail Analytics', 'Pricing Strategy', 'Inventory Management'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d90801da069d1c2c71d5b76&pm=c'
+    },
+    {
+      title: 'Supply Chain Optimization',
+      subtitle: 'The Coorg Experience – Coffee Strategy',
+      description: 'Developed strategy for introducing AAA Arabica Coffee Beans from Coorg, India, into the U.S. market through Walmart partnership.',
+      tags: ['Supply Chain', 'Market Entry', 'Retail Partnership'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d9080d8b6e3f5c7e1dd8467&pm=c'
+    },
   ];
 
   return (
@@ -37,7 +44,7 @@ const Projects = () => {
         A selection of projects that showcase my skills and expertise.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
         {projects.map((project, index) => (
           <Tooltip key={index}>
             <TooltipTrigger asChild>
