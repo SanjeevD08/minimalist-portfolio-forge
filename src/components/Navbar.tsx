@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, Home, User, Briefcase, FileText, FileSpreadsheet, Mail, Database } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, FileText, Mail, Database } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useTheme } from '@/contexts/ThemeContext';
 import { NavBar } from '@/components/ui/tubelight-navbar';
@@ -32,7 +32,6 @@ const Navbar = () => {
     { href: '#skills', label: 'Skills', icon: Database },
     { href: '#experience', label: 'Experience', icon: Briefcase },
     { href: '#projects', label: 'Projects', icon: FileText },
-    { href: '#resume', label: 'Resume', icon: FileSpreadsheet },
     { href: '#contact', label: 'Contact', icon: Mail }
   ];
 
