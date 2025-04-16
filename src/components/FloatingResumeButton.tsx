@@ -19,7 +19,7 @@ const FloatingResumeButton = () => {
   };
 
   return (
-    <div className={`fixed ${isMobile ? 'left-4 bottom-20' : 'left-6 bottom-8'} z-40`}>
+    <div className={`fixed ${isMobile ? 'right-4 bottom-20' : 'right-6 bottom-8'} z-40`}>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
@@ -45,7 +45,7 @@ const FloatingResumeButton = () => {
               <FileText size={18} />
             </motion.a>
           </TooltipTrigger>
-          <TooltipContent side="right" className="bg-background/80 backdrop-blur-sm border-primary/10">
+          <TooltipContent side="left" className="bg-background/80 backdrop-blur-sm border-primary/10">
             <p>Download Resume</p>
           </TooltipContent>
         </Tooltip>
