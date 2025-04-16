@@ -1,5 +1,5 @@
 
-import { Activity, Component, HomeIcon, Mail, Package, ScrollText, SunMoon } from 'lucide-react';
+import { Activity, Component, HomeIcon, Mail, Package, ScrollText, SunMoon, Database } from 'lucide-react';
 import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 
 const data = [{
@@ -10,6 +10,10 @@ const data = [{
   title: 'About',
   icon: <Package className='h-full w-full text-white' />,
   href: '#about'
+}, {
+  title: 'Skills',
+  icon: <Database className='h-full w-full text-white' />,
+  href: '#skills'
 }, {
   title: 'Experience',
   icon: <Component className='h-full w-full text-white' />,
