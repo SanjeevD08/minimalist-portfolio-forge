@@ -10,6 +10,7 @@ import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
 import BackToTopButton from '@/components/BackToTopButton';
 import { HorizontalDock } from '@/components/HorizontalDock';
+import FloatingResumeButton from '@/components/FloatingResumeButton';
 
 const Index = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <FloatingResumeButton />
       <BackToTopButton />
       <HorizontalDock />
     </div>
