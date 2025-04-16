@@ -32,19 +32,19 @@ const FloatingResumeButton = () => {
               animate={{ 
                 scale: 1,
                 opacity: 1,
-                backgroundColor: isHovered ? 'rgba(0, 0, 0, 0.4)' : 'rgba(0, 0, 0, 0.2)'
+                backgroundColor: isHovered ? 'rgba(8, 145, 178, 0.6)' : 'rgba(8, 145, 178, 0.4)'
               }}
               whileHover={{ 
                 scale: 1.1,
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                boxShadow: '0 0 15px rgba(255,255,255,0.3)'
+                backgroundColor: 'rgba(8, 145, 178, 0.8)',
+                boxShadow: '0 0 20px rgba(8, 145, 178, 0.5)'
               }}
               whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="flex items-center justify-center glass-card text-primary p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-12 h-12"
+              className="flex items-center justify-center bg-cyan-600/40 text-white p-4 rounded-full shadow-2xl hover:shadow-xl transition-all duration-300 w-16 h-16"
             >
-              <FileText size={22} className="text-white" />
+              <FileText size={28} className="text-white" />
             </motion.a>
           </TooltipTrigger>
           <TooltipContent side="left" className="bg-background/80 backdrop-blur-sm border-primary/10">
