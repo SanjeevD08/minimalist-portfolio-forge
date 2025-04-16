@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Section from '@/components/Section';
 import { Card, CardContent } from '@/components/ui/card';
@@ -75,7 +76,7 @@ const Projects = () => {
     },
   ];
 
-  // Always show 8 projects initially, then show all when the button is clicked
+  // Display 8 projects initially, then all on button click
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 8);
 
   return (
@@ -87,58 +88,59 @@ const Projects = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {visibleProjects.map((project, index) => (
-          <Tooltip key={index}>
-            <TooltipTrigger asChild>
-              <a 
-                href={project.caseStudyLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block h-full"
-              >
-                <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer">
-                  <div className="p-4 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
-                    <div>
-                      <h3 className="text-lg font-semibold line-clamp-1">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground line-clamp-1">{project.subtitle}</p>
-                    </div>
-                    <ExternalLink size={16} className="text-primary/70" />
-                  </div>
-                  
-                  <CardContent className="space-y-3 p-4">
-                    <p className="text-muted-foreground text-sm line-clamp-2">{project.description}</p>
-                    
-                    <div className="flex items-center gap-2">
-                      <Code size={14} className="text-primary/70 shrink-0" />
-                      <div className="flex flex-wrap gap-1">
-                        {project.tags.map((tag, i) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary" 
-                            className="bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-colors"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
+          <TooltipProvider key={index}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a 
+                  href={project.caseStudyLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                >
+                  <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer">
+                    <div className="p-4 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
+                      <div>
+                        <h3 className="text-lg font-semibold line-clamp-1">{project.title}</h3>
+                        <p className="text-sm text-muted-foreground line-clamp-1">{project.subtitle}</p>
                       </div>
+                      <ExternalLink size={16} className="text-primary/70" />
                     </div>
-                  </CardContent>
-                </Card>
-              </a>
-            </TooltipTrigger>
-            <TooltipContent side="top">
-              <p>View full project details</p>
-            </TooltipContent>
-          </Tooltip>
+                    
+                    <CardContent className="space-y-3 p-4">
+                      <p className="text-muted-foreground text-sm line-clamp-2">{project.description}</p>
+                      
+                      <div className="flex items-center gap-2">
+                        <Code size={14} className="text-primary/70 shrink-0" />
+                        <div className="flex flex-wrap gap-1">
+                          {project.tags.map((tag, i) => (
+                            <Badge 
+                              key={i} 
+                              variant="secondary" 
+                              className="bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-colors"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent side="top">
+                <p>View full project details</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         ))}
       </div>
 
-      {/* Show the button if there are more than 8 projects */}
       {projects.length > 8 && (
         <div className="flex justify-center mt-8">
           <Button 
             onClick={() => setShowAllProjects(!showAllProjects)}
             variant="secondary"
-            className="group bg-primary/10 text-primary shadow-sm hover:bg-primary/20 border border-primary/20"
+            className="group bg-primary/20 text-primary hover:bg-primary/30 border border-primary/30 shadow-md font-medium"
           >
             {showAllProjects ? (
               <>
