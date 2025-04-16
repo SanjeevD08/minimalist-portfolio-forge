@@ -1,50 +1,68 @@
+
 import { useEffect, useRef } from 'react';
 import Section from '@/components/Section';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BrainCog, Truck, Puzzle } from 'lucide-react';
+import { BrainCog, Truck, Puzzle, Users } from 'lucide-react';
 
 const About = () => {
   const skills = {
     technical: {
       icon: <BrainCog className="w-5 h-5 text-primary" />,
-      title: "🧠 Technical & Analytics",
+      title: "Technical & Analytics",
+      description: "Skills focused on data handling, analysis, and modeling",
       items: [
         'Python (Pandas, NumPy)',
         'SQL',
+        'R',
         'Tableau',
         'Excel (Power Query, Pivot Tables)',
-        'R',
         'VBA',
-        'Data Visualization',
         'Predictive Modeling',
         'Sentiment Analysis',
-        'Descriptive Statistics'
+        'Descriptive Statistics',
+        'Data Visualization'
       ]
     },
     supplyChain: {
       icon: <Truck className="w-5 h-5 text-primary" />,
-      title: "🚚 Supply Chain & Business",
+      title: "Supply Chain Expertise",
+      description: "Skills tied to planning, operations, sourcing, and optimization",
       items: [
         'Demand Forecasting',
         'Inventory Optimization',
-        'Supplier Evaluation',
         'Procurement Strategy',
-        'Agile (Scrum, Kanban)',
+        'Supplier Evaluation',
         'Sourcing & Resource Allocation',
+        'ABC Analysis',
         '6S, DMAIC, VSM',
         'Gantt Charts'
       ]
     },
     tools: {
       icon: <Puzzle className="w-5 h-5 text-primary" />,
-      title: "🧩 Tools & Softwares",
+      title: "Tools & Platforms",
+      description: "Software and platforms for executing work",
       items: [
         'Jira',
         'Microsoft Visio',
-        'Power BI'
+        'Power BI',
+        'Git',
+        'Toast POS'
+      ]
+    },
+    business: {
+      icon: <Users className="w-5 h-5 text-primary" />,
+      title: "Business & Project Methodologies",
+      description: "Methods and frameworks applied professionally",
+      items: [
+        'Agile (Scrum, Kanban)',
+        'Lean Six Sigma',
+        'Stakeholder Engagement',
+        'Cross-Team Collaboration',
+        'Root Cause Analysis'
       ]
     }
   };
@@ -145,23 +163,27 @@ const About = () => {
               </div>
             </div>
             
-            <div className="mt-8 skills-container">
+            <div className="mt-12 skills-container">
               <h3 className="text-xl font-semibold mb-4">My Skills</h3>
-              <Separator className="mb-6" />
-              <div className="space-y-6">
+              <Separator className="mb-8" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {Object.entries(skills).map(([key, category]) => (
-                  <div key={key} className="space-y-3">
-                    <div className="flex items-center gap-2 mb-2">
-                      {category.icon}
-                      <h4 className="font-medium text-lg">{category.title}</h4>
+                  <div key={key} className="space-y-4 glass-card p-6 rounded-lg">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        {category.icon}
+                        <h4 className="font-semibold text-lg">{category.title}</h4>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{category.description}</p>
                     </div>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-1 gap-2">
                       {category.items.map((skill, index) => (
                         <span
                           key={index}
-                          className="skill-item px-3 py-1.5 glass-card rounded-md font-medium text-sm hover:bg-primary/10 transition-colors duration-200"
+                          className="skill-item inline-flex items-center px-3 py-1.5 bg-primary/5 hover:bg-primary/10 rounded-full text-sm font-medium transition-colors duration-200"
                           tabIndex={0}
                         >
+                          <span className="mr-2 text-primary">🔹</span>
                           {skill}
                         </span>
                       ))}
@@ -178,3 +200,4 @@ const About = () => {
 };
 
 export default About;
+
