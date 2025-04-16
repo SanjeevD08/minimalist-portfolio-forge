@@ -1,5 +1,5 @@
 
-import { Database, BarChart, Briefcase, Tool } from 'lucide-react';
+import { Database, BarChart, Briefcase, Wrench } from 'lucide-react';
 import Section from '@/components/Section';
 import { Separator } from '@/components/ui/separator';
 
@@ -26,7 +26,7 @@ const Skills = () => {
       ]
     },
     tools: {
-      icon: <Tool className="w-6 h-6 text-primary" />,
+      icon: <Wrench className="w-6 h-6 text-primary" />,
       title: "Tools",
       description: "Software & platforms",
       items: [
