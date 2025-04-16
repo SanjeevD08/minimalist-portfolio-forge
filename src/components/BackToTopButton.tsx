@@ -37,7 +37,7 @@ const BackToTopButton = () => {
           variant="outline"
           size="icon"
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 rounded-full h-12 w-12 z-50 glass-card shadow-lg focus:ring-2 focus:ring-primary focus:outline-none"
+          className="fixed bottom-24 right-8 rounded-full h-12 w-12 z-50 glass-card shadow-lg focus:ring-2 focus:ring-primary focus:outline-none"
           aria-label="Back to top"
         >
           <ArrowUp size={20} />

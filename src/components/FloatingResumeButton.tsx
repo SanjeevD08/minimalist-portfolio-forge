@@ -19,7 +19,7 @@ const FloatingResumeButton = () => {
   };
 
   return (
-    <div className={`fixed ${isMobile ? 'right-4 bottom-24' : 'right-8 bottom-12'} z-50`}>
+    <div className={`fixed ${isMobile ? 'right-4 bottom-8' : 'right-8 bottom-8'} z-50`}>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
