@@ -1,8 +1,11 @@
 
 import Section from '@/components/Section';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { Briefcase, Building2, Calendar, ExternalLink } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
 
 const Experience = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -12,6 +15,11 @@ const Experience = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            const timelineElements = entry.target.querySelectorAll('.timeline-line');
+            timelineElements.forEach((el) => {
+              el.classList.add('grow-line');
+            });
+            
             const slideElements = entry.target.querySelectorAll('.slide-from-left');
             slideElements.forEach((el, index) => {
               setTimeout(() => {
@@ -70,27 +78,87 @@ const Experience = () => {
   return (
     <Section id="experience" className="bg-secondary/30" ref={sectionRef}>
       <h2 className="section-title reveal">Work Experience</h2>
-      <div className="space-y-8 mt-12">
+      <div className="relative flex flex-col space-y-8 mt-12">
+        {/* Timeline Line */}
+        <div className="absolute left-8 top-3 bottom-3 w-px bg-border/50 hidden md:block" />
+        
         {experiences.map((exp, index) => (
-          <Card key={index} className="slide-from-left border-0 shadow-sm overflow-hidden glass-card">
-            <div className="grid grid-cols-1 md:grid-cols-4">
-              <CardHeader className="md:border-r border-border">
-                <CardTitle>{exp.role}</CardTitle>
-                <CardDescription>{exp.company}</CardDescription>
-                <p className="text-sm text-muted-foreground mt-2">{exp.period}</p>
-                <p className="text-sm text-primary mt-3 font-medium">Tools: {exp.tools}</p>
-              </CardHeader>
-              <CardContent className="col-span-3 p-6">
-                <p className="text-muted-foreground mb-4">{exp.description}</p>
-                <h4 className="font-medium mb-2">Key Achievements:</h4>
-                <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                  {exp.achievements.map((achievement, i) => (
-                    <li key={i}>{achievement}</li>
-                  ))}
-                </ul>
-              </CardContent>
+          <div key={index} className="group">
+            <div className="slide-from-left flex flex-col md:flex-row gap-4 relative">
+              {/* Timeline Dot */}
+              <div className="hidden md:flex absolute -left-3 top-3 items-center">
+                <div className="timeline-dot w-6 h-6 rounded-full bg-primary/20 border-2 border-primary/30 group-hover:border-primary/60 transition-colors duration-300" />
+              </div>
+              
+              {/* Timeline Line Growth Animation */}
+              <div className="timeline-line absolute left-0 top-9 bottom-0 w-px bg-primary/20 origin-top scale-y-0 transition-transform duration-1000" />
+              
+              {/* Card */}
+              <Card className="w-full glass-card hover:scale-[1.02] transition-transform duration-300">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <CardHeader className="md:border-r border-border space-y-3">
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-1">
+                        <CardTitle className="text-xl font-bold">{exp.role}</CardTitle>
+                        <CardDescription className="flex items-center gap-2">
+                          <Building2 className="w-4 h-4" />
+                          {exp.company}
+                        </CardDescription>
+                      </div>
+                      
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <a 
+                              href="#" 
+                              className="text-muted-foreground hover:text-primary transition-colors"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="w-5 h-5" />
+                            </a>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>View on LinkedIn</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span>{exp.period}</span>
+                    </div>
+                    
+                    <HoverCard>
+                      <HoverCardTrigger asChild>
+                        <div className="flex items-center gap-2 text-sm text-primary font-medium cursor-pointer">
+                          <Briefcase className="w-4 h-4" />
+                          <span>Tools: {exp.tools}</span>
+                        </div>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80">
+                        <div className="space-y-2">
+                          <h4 className="font-medium">Technical Skills & Tools</h4>
+                          <p className="text-sm text-muted-foreground">{exp.tools}</p>
+                        </div>
+                      </HoverCardContent>
+                    </HoverCard>
+                  </CardHeader>
+                  
+                  <CardContent className="col-span-3 p-6">
+                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <h4 className="font-medium mb-2">Key Achievements:</h4>
+                    <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="hover:text-foreground transition-colors">{achievement}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </div>
+              </Card>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </Section>
@@ -98,4 +166,3 @@ const Experience = () => {
 };
 
 export default Experience;
-
