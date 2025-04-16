@@ -49,6 +49,21 @@ const Experience = () => {
         'Analyzed purchasing patterns using K-Means, DBSCAN, and cosine similarity to identify growth profiles for personalized recommendations',
         'Streamlined processing of 12+ months of sales data through optimized storage and retrieval systems'
       ]
+    },
+    {
+      role: 'Business Analyst - Supply Chain Optimization',
+      company: 'Vestas Pharmaceuticals',
+      period: 'May 2023 - Nov 2023',
+      description: 'Revamped supply chain and procurement workflows, resolving bottlenecks and increasing process efficiency by 20% through data-driven analysis and optimization strategies.',
+      tools: 'Tableau, Excel, SQL, Agile',
+      achievements: [
+        'Improved supplier reliability by 12% through performance metrics and sourcing optimization',
+        'Engineered real-time inventory reports using Tableau, Excel, and SQL, improving stock accuracy by 15%',
+        'Managed inventory for fast-moving SKUs using ABC analysis and Kanban, reducing stockouts by 10%',
+        'Designed a sales forecasting model, improving resource allocation and cost budgeting accuracy by 15%',
+        'Conducted market research on supplier trends and pricing, enabling data-driven procurement decisions',
+        'Developed a landed cost estimation template and established 3PL strategic partnership, streamlining supplier selection'
+      ]
     }
   ];
 
