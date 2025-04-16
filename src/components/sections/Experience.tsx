@@ -8,32 +8,32 @@ const experiences = [
     role: 'Forecasting Analyst - Supply Chain',
     company: 'Thermo Fisher Scientific',
     period: 'Aug 2024 - Dec 2024',
-    linkedIn: 'https://www.linkedin.com/company/thermo-fisher-scientific',
-    color: '#0EA5E9', // Blue for tech/scientific
+    linkedIn: 'https://www.linkedin.com/in/sanjeev-dhanush08/',
+    color: '#0EA5E9',
     tags: ['Python', 'SQL', 'Supply Chain']
   },
   {
     role: 'Business Analyst - Supply Chain Optimization',
     company: 'Vestas Pharmaceuticals',
     period: 'May 2023 - Dec 2023',
-    linkedIn: 'https://www.linkedin.com/company/vestas-pharmaceuticals',
-    color: '#8B5CF6', // Purple for pharma
+    linkedIn: 'https://www.linkedin.com/in/sanjeev-dhanush08/',
+    color: '#8B5CF6',
     tags: ['Data Analysis', 'Supply Chain', 'SQL']
   },
   {
     role: 'Associate Consultant Business Analyst',
     company: 'ZoomRx',
     period: 'Feb 2021 - May 2023',
-    linkedIn: 'https://www.linkedin.com/company/zoomrx',
-    color: '#F97316', // Orange for consulting
+    linkedIn: 'https://www.linkedin.com/in/sanjeev-dhanush08/',
+    color: '#F97316',
     tags: ['Analytics', 'Consulting', 'Research']
   },
   {
     role: 'Data Analyst Intern',
     company: 'Chevrolet',
     period: 'Feb 2020 - July 2020',
-    linkedIn: 'https://www.linkedin.com/company/chevrolet',
-    color: '#D946EF', // Pink for automotive
+    linkedIn: 'https://www.linkedin.com/in/sanjeev-dhanush08/',
+    color: '#D946EF',
     tags: ['Data Analysis', 'Automotive', 'Excel']
   }
 ];
