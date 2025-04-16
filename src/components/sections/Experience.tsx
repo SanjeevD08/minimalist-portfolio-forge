@@ -1,4 +1,3 @@
-
 import Section from '@/components/Section';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -37,36 +36,17 @@ const Experience = () => {
 
   const experiences = [
     {
-      role: 'Senior Position',
-      company: 'Company Name',
-      period: 'Jan 2021 - Present',
-      description: 'Led cross-functional teams to deliver projects on time and within budget. Improved process efficiency by 30% through implementation of new methodologies.',
+      role: 'Forecasting Analyst',
+      company: 'Thermo Fisher Scientific',
+      period: 'Aug 2024 - Dec 2024',
+      description: 'Designed predictive models using Python (including RNNs & collaborative filter) to forecast customer growth and recommend "next best" products across 400+ product categories, 700+ SKUs, and 62,000+ customers, driving data-backed sales strategies.',
+      tools: 'Python, Machine Learning, SQL, Tableau',
       achievements: [
-        'Spearheaded the development of a new product feature that increased user engagement by 25%',
-        'Managed a team of 8 professionals across different departments',
-        'Reduced operational costs by 15% through process optimization'
-      ]
-    },
-    {
-      role: 'Mid-level Position',
-      company: 'Previous Company',
-      period: 'Mar 2018 - Dec 2020',
-      description: 'Collaborated with stakeholders to understand requirements and deliver solutions that met business objectives.',
-      achievements: [
-        'Successfully delivered 12 projects with an average client satisfaction rating of 4.8/5',
-        'Implemented new workflow that increased team productivity by 20%',
-        'Recognized as Employee of the Quarter twice'
-      ]
-    },
-    {
-      role: 'Junior Position',
-      company: 'First Company',
-      period: 'Jun 2016 - Feb 2018',
-      description: 'Assisted in the development and implementation of various projects, gaining valuable industry experience.',
-      achievements: [
-        'Contributed to 5 major projects that helped establish the company in new markets',
-        'Developed and maintained documentation that improved onboarding process',
-        'Participated in client meetings and presented project updates'
+        'Uncovered $1.2M+ in revenue potential by analyzing invoice data and SKU trends, driving targeted sales recommendations',
+        'Optimized inventory planning, reducing stockouts by 12% through refined demand forecasting models',
+        'Automated data workflows by engineering scalable Python ETL pipelines and a 3NF SQL database, reducing preparation time by 35%',
+        'Analyzed purchasing patterns using K-Means, DBSCAN, and cosine similarity to identify growth profiles for personalized recommendations',
+        'Streamlined processing of 12+ months of sales data through optimized storage and retrieval systems'
       ]
     }
   ];
@@ -82,11 +62,12 @@ const Experience = () => {
                 <CardTitle>{exp.role}</CardTitle>
                 <CardDescription>{exp.company}</CardDescription>
                 <p className="text-sm text-muted-foreground mt-2">{exp.period}</p>
+                <p className="text-sm text-primary mt-3 font-medium">Tools: {exp.tools}</p>
               </CardHeader>
               <CardContent className="col-span-3 p-6">
                 <p className="text-muted-foreground mb-4">{exp.description}</p>
                 <h4 className="font-medium mb-2">Key Achievements:</h4>
-                <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
+                <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                   {exp.achievements.map((achievement, i) => (
                     <li key={i}>{achievement}</li>
                   ))}
