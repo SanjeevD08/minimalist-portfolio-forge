@@ -42,26 +42,26 @@ const Contact = () => {
     { 
       icon: Mail, 
       title: 'Email', 
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com'
+      value: 'challapalli.s@northeastern.edu',
+      href: 'mailto:challapalli.s@northeastern.edu'
     },
     { 
       icon: Phone, 
       title: 'Phone', 
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+1 (617) 516-7697',
+      href: 'tel:+16175167697'
     },
     { 
       icon: Linkedin, 
       title: 'LinkedIn', 
-      value: 'linkedin.com/in/yourprofile',
-      href: 'https://linkedin.com/in/yourprofile'
+      value: 'linkedin.com/in/sanjeev-dhanush08/',
+      href: 'https://www.linkedin.com/in/sanjeev-dhanush08/'
     },
     { 
       icon: Github, 
       title: 'GitHub', 
-      value: 'github.com/yourusername',
-      href: 'https://github.com/yourusername'
+      value: 'github.com/SanjeevD08',
+      href: 'https://github.com/SanjeevD08'
     }
   ];
 
@@ -84,11 +84,11 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 group"
               >
-                <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center">
-                  <method.icon size={20} className="text-primary group-hover:scale-110 transition-transform" />
+                <div className="h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                  <method.icon size={20} strokeWidth={1.5} className="text-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <div>
-                  <h3 className="font-medium">{method.title}</h3>
+                  <h3 className="font-medium text-foreground">{method.title}</h3>
                   <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
                     {method.value}
                   </p>
@@ -155,3 +155,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
