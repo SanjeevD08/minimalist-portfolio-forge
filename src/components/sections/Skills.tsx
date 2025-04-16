@@ -1,64 +1,49 @@
 
-import { BrainCog, Truck, Puzzle, Users } from 'lucide-react';
+import { Database, BarChart, Briefcase, Tool } from 'lucide-react';
 import Section from '@/components/Section';
 import { Separator } from '@/components/ui/separator';
 
 const Skills = () => {
   const skills = {
     technical: {
-      icon: <BrainCog className="w-6 h-6 text-primary" />,
-      title: "Technical & Analytics",
-      description: "Skills focused on data handling, analysis, and modeling",
+      icon: <Database className="w-6 h-6 text-primary" />,
+      title: "Technical Skills",
+      description: "Data analysis & technical expertise",
       items: [
-        'Python (Pandas, NumPy)',
-        'SQL',
-        'R',
-        'Tableau',
-        'Excel (Power Query, Pivot Tables)',
-        'VBA',
-        'Predictive Modeling',
-        'Sentiment Analysis',
-        'Descriptive Statistics',
-        'Data Visualization'
+        'Python', 'SQL', 'R', 
+        'Tableau', 'Excel', 'VBA', 
+        'Data Modeling', 'Statistics'
       ]
     },
     supplyChain: {
-      icon: <Truck className="w-6 h-6 text-primary" />,
-      title: "Supply Chain Expertise",
-      description: "Skills tied to planning, operations, sourcing, and optimization",
+      icon: <BarChart className="w-6 h-6 text-primary" />,
+      title: "Supply Chain",
+      description: "Operations & optimization skills",
       items: [
-        'Demand Forecasting',
-        'Inventory Optimization',
-        'Procurement Strategy',
-        'Supplier Evaluation',
-        'Sourcing & Resource Allocation',
-        'ABC Analysis',
-        '6S, DMAIC, VSM',
-        'Gantt Charts'
+        'Forecasting', 'Inventory', 
+        'Procurement', 'Resource Allocation', 
+        'ABC Analysis', '6S Methodology'
       ]
     },
     tools: {
-      icon: <Puzzle className="w-6 h-6 text-primary" />,
-      title: "Tools & Platforms",
-      description: "Software and platforms for executing work",
+      icon: <Tool className="w-6 h-6 text-primary" />,
+      title: "Tools",
+      description: "Software & platforms",
       items: [
-        'Jira',
-        'Microsoft Visio',
-        'Power BI',
-        'Git',
+        'Jira', 'Power BI', 
+        'Git', 'Visio', 
         'Toast POS'
       ]
     },
     business: {
-      icon: <Users className="w-6 h-6 text-primary" />,
-      title: "Business & Project Methodologies",
-      description: "Methods and frameworks applied professionally",
+      icon: <Briefcase className="w-6 h-6 text-primary" />,
+      title: "Methodologies",
+      description: "Professional frameworks",
       items: [
-        'Agile (Scrum, Kanban)',
-        'Lean Six Sigma',
-        'Stakeholder Engagement',
-        'Cross-Team Collaboration',
-        'Root Cause Analysis'
+        'Agile', 'Scrum', 
+        'Lean Six Sigma', 
+        'Stakeholder Engagement', 
+        'Collaboration'
       ]
     }
   };
@@ -68,25 +53,23 @@ const Skills = () => {
       <h2 className="section-title mb-6">My Skills</h2>
       <Separator className="mb-12" />
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {Object.entries(skills).map(([key, category]) => (
-          <div key={key} className="glass-card p-6 rounded-xl space-y-4">
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                {category.icon}
-                <h3 className="text-xl font-semibold">{category.title}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">{category.description}</p>
+          <div key={key} className="glass-card p-4 rounded-xl space-y-3">
+            <div className="flex items-center gap-2">
+              {category.icon}
+              <h3 className="text-lg font-semibold">{category.title}</h3>
             </div>
+            <p className="text-xs text-muted-foreground line-clamp-2">{category.description}</p>
             
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-1">
               {category.items.map((skill, index) => (
                 <span
                   key={index}
-                  className="inline-flex items-center px-3 py-1.5 bg-primary/5 hover:bg-primary/10 rounded-full text-sm font-medium transition-colors duration-200"
+                  className="inline-flex items-center px-2 py-1 bg-primary/5 hover:bg-primary/10 rounded-full text-xs font-medium transition-colors"
                   tabIndex={0}
                 >
-                  <span className="mr-2 text-primary">🔹</span>
+                  <span className="mr-1 text-primary">•</span>
                   {skill}
                 </span>
               ))}
