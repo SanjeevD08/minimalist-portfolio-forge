@@ -42,6 +42,27 @@ const Projects = () => {
       tags: ['Machine Learning', 'Forecasting', 'Retail Analytics'],
       caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b9d23124d90807bb6becc6126c79a8a&pm=c'
     },
+    {
+      title: 'SVM for Classification & Regression',
+      subtitle: 'Boston Housing Analysis',
+      description: 'Explored Support Vector Machines (SVM) for both classification and regression tasks using Boston housing datasets.',
+      tags: ['SVM', 'Machine Learning', 'Classification', 'Regression'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d908046960df86f4a3dd666&pm=c'
+    },
+    {
+      title: 'Topic Modeling for News Articles',
+      subtitle: 'Automated Classification with ML',
+      description: 'Applied topic modeling and machine learning techniques to automatically classify news articles based on their textual content.',
+      tags: ['NLP', 'Topic Modeling', 'Classification', 'Text Analytics'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d9080d2af40e98bbca80370&pm=c'
+    },
+    {
+      title: 'Predictive Analytics for Car Valuation',
+      subtitle: 'Carvana Case Analysis',
+      description: 'Applied predictive analytics to real-world business scenarios for used car valuations in the Carvana marketplace.',
+      tags: ['Predictive Analytics', 'Business Intelligence', 'Regression'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b9d23124d9080788200de50cc75727f&pm=c'
+    },
   ];
 
   return (
