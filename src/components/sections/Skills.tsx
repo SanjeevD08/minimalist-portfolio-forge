@@ -68,22 +68,22 @@ const Skills = () => {
       <h2 className="section-title mb-6">My Skills</h2>
       <Separator className="mb-12" />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {Object.entries(skills).map(([key, category]) => (
-          <div key={key} className="glass-card p-8 rounded-xl space-y-6">
+          <div key={key} className="glass-card p-6 rounded-xl space-y-4">
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 {category.icon}
-                <h3 className="text-2xl font-semibold">{category.title}</h3>
+                <h3 className="text-xl font-semibold">{category.title}</h3>
               </div>
-              <p className="text-muted-foreground">{category.description}</p>
+              <p className="text-sm text-muted-foreground">{category.description}</p>
             </div>
             
-            <div className="grid grid-cols-1 gap-3">
+            <div className="flex flex-col gap-2">
               {category.items.map((skill, index) => (
                 <span
                   key={index}
-                  className="inline-flex items-center px-4 py-2 bg-primary/5 hover:bg-primary/10 rounded-full text-sm font-medium transition-colors duration-200"
+                  className="inline-flex items-center px-3 py-1.5 bg-primary/5 hover:bg-primary/10 rounded-full text-sm font-medium transition-colors duration-200"
                   tabIndex={0}
                 >
                   <span className="mr-2 text-primary">🔹</span>
