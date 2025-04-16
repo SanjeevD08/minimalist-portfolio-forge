@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Section from '@/components/Section';
 import { Card, CardContent } from '@/components/ui/card';
@@ -87,7 +86,6 @@ const Projects = () => {
     }
   };
 
-  // Display first 8 projects initially, then all on button click
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 8);
 
   return (
@@ -108,7 +106,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer">
+                  <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer bg-card">
                     <div className="p-4 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
                       <div>
                         <h3 className="text-lg font-semibold line-clamp-1">{project.title}</h3>
