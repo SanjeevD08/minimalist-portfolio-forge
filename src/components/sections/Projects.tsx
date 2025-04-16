@@ -1,31 +1,28 @@
 
 import Section from '@/components/Section';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Folder } from 'lucide-react';
+import { ExternalLink, Folder, Code } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { useState } from 'react';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Retail Analytics Dashboard',
-      subtitle: 'Green River Outdoor, Boston',
-      summary: 'Enhanced data-driven decision-making across 5 retail locations by analyzing customer satisfaction and transaction data.',
-      tags: ['Python', 'Pandas', 'SciPy', 'Statistical Analysis', 'Hypothesis Tests'],
+      title: 'Retail Store Performance Analysis Project | Green River Outdoor, Boston Metro Area',
+      description: 'This project aimed to enhance data-driven decision-making for Green River Outdoor (GRO), a prominent retailer in the outdoor goods sector. The focus was on analyzing customer satisfaction, transaction data, and profitability across five store locations in the Boston metro area.',
+      tags: ['Pandas', 'Python', 'SciPy', 'Statistical Analysis', 'Hypothesis Tests', 'Logistic Regression'],
       caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d90805d9998cc4fb47c7259&pm=c'
     },
     {
       title: 'Data Visualizer Pro',
-      subtitle: 'Interactive Analytics Tool',
-      summary: 'Built a visualization platform for complex datasets with customizable charts, exports and sharing capabilities.',
+      description: 'An interactive data visualization tool that helps users understand complex datasets through customizable charts and graphs. Includes export options and sharing capabilities.',
       tags: ['TypeScript', 'D3.js', 'Express', 'PostgreSQL'],
       caseStudyLink: 'https://notion.so/data-visualizer'
     },
     {
       title: 'Smart Home Hub',
-      subtitle: 'IoT Control System',
-      summary: 'Developed a central system for smart home devices with automation rules, voice control, and mobile access.',
+      description: 'A central control system for smart home devices that integrates with various IoT products. Features include automation rules, voice control, and mobile app remote access.',
       tags: ['Python', 'Flask', 'React Native', 'Firebase'],
       caseStudyLink: 'https://notion.so/smart-home-hub'
     }
@@ -41,47 +38,51 @@ const Projects = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <HoverCard key={index}>
-            <HoverCardTrigger asChild>
-              <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer">
-                <a 
-                  href={project.caseStudyLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block h-full"
-                >
-                  <div className="p-4 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
-                    <Folder className="h-6 w-6 text-primary/70" />
-                    <ExternalLink size={14} className="text-primary/70" />
+          <Tooltip key={index}>
+            <TooltipTrigger asChild>
+              <a 
+                href={project.caseStudyLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block h-full"
+              >
+                <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer">
+                  <div className="p-6 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
+                    <Folder className="h-8 w-8 text-primary/70" />
+                    <ExternalLink size={16} className="text-primary/70" />
                   </div>
                   
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <CardDescription className="text-sm text-muted-foreground">{project.subtitle}</CardDescription>
+                  <CardHeader>
+                    <CardTitle className="line-clamp-2">{project.title}</CardTitle>
                   </CardHeader>
                   
                   <CardContent>
-                    <p className="text-sm text-foreground/80 mb-4">{project.summary}</p>
+                    <p className="text-muted-foreground mb-6 line-clamp-3">{project.description}</p>
                     
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Code size={16} className="text-primary/70" />
+                      <span className="text-sm font-medium text-primary/70">Tech Stack</span>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2 mb-2">
                       {project.tags.map((tag, i) => (
                         <Badge 
                           key={i} 
                           variant="secondary" 
-                          className="text-xs bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                          className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
                         >
                           {tag}
                         </Badge>
                       ))}
                     </div>
                   </CardContent>
-                </a>
-              </Card>
-            </HoverCardTrigger>
-            <HoverCardContent className="p-2">
-              <p className="text-xs">Click to view detailed case study</p>
-            </HoverCardContent>
-          </HoverCard>
+                </Card>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent side="top">
+              <p>Click to view full project on Notion</p>
+            </TooltipContent>
+          </Tooltip>
         ))}
       </div>
     </Section>
