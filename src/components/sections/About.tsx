@@ -145,21 +145,21 @@ const About = () => {
               </div>
             </div>
             
-            <div className="mt-12 skills-container">
-              <h3 className="text-xl font-semibold mb-6">My Skills</h3>
-              <Separator className="mb-8" />
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="mt-8 skills-container">
+              <h3 className="text-xl font-semibold mb-4">My Skills</h3>
+              <Separator className="mb-6" />
+              <div className="space-y-6">
                 {Object.entries(skills).map(([key, category]) => (
-                  <div key={key} className="space-y-4">
-                    <div className="flex items-center gap-2 mb-4">
+                  <div key={key} className="space-y-3">
+                    <div className="flex items-center gap-2 mb-2">
                       {category.icon}
                       <h4 className="font-medium text-lg">{category.title}</h4>
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {category.items.map((skill, index) => (
                         <span
                           key={index}
-                          className="skill-item inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 bg-secondary/50 hover:bg-secondary/70 text-foreground/90 backdrop-blur-sm"
+                          className="skill-item px-3 py-1.5 glass-card rounded-md font-medium text-sm hover:bg-primary/10 transition-colors duration-200"
                           tabIndex={0}
                         >
                           {skill}
