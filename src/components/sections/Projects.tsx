@@ -1,11 +1,15 @@
 
+import { useState } from 'react';
 import Section from '@/components/Section';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Code, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const Projects = () => {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  
   const projects = [
     {
       title: 'Retail Store Performance Analysis',
@@ -63,7 +67,16 @@ const Projects = () => {
       tags: ['Predictive Analytics', 'Business Intelligence', 'Regression'],
       caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b9d23124d9080788200de50cc75727f&pm=c'
     },
+    {
+      title: 'Twitter Analysis for Tech Influencers',
+      subtitle: 'Engagement Dynamics Research',
+      description: 'Conducted sophisticated analysis of Twitter data concerning technology influencers to understand and enhance their engagement dynamics.',
+      tags: ['Social Media Analytics', 'NLP', 'Sentiment Analysis', 'Engagement Metrics'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b9d23124d90807980f6c050fdff228a&pm=c'
+    },
   ];
+
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
 
   return (
     <Section id="projects">
@@ -72,8 +85,8 @@ const Projects = () => {
         A selection of projects that showcase my skills and expertise.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {visibleProjects.map((project, index) => (
           <Tooltip key={index}>
             <TooltipTrigger asChild>
               <a 
@@ -83,25 +96,25 @@ const Projects = () => {
                 className="block h-full"
               >
                 <Card className="reveal glass-card overflow-hidden border-0 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 h-full cursor-pointer">
-                  <div className="p-6 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
+                  <div className="p-4 flex items-center justify-between bg-gradient-to-r from-primary/10 to-primary/5">
                     <div>
-                      <h3 className="text-lg font-semibold">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground">{project.subtitle}</p>
+                      <h3 className="text-lg font-semibold line-clamp-1">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground line-clamp-1">{project.subtitle}</p>
                     </div>
                     <ExternalLink size={16} className="text-primary/70" />
                   </div>
                   
-                  <CardContent className="space-y-4">
-                    <p className="text-muted-foreground line-clamp-3">{project.description}</p>
+                  <CardContent className="space-y-3 p-4">
+                    <p className="text-muted-foreground text-sm line-clamp-2">{project.description}</p>
                     
                     <div className="flex items-center gap-2">
-                      <Code size={16} className="text-primary/70" />
-                      <div className="flex flex-wrap gap-2">
+                      <Code size={14} className="text-primary/70 shrink-0" />
+                      <div className="flex flex-wrap gap-1">
                         {project.tags.map((tag, i) => (
                           <Badge 
                             key={i} 
                             variant="secondary" 
-                            className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                            className="bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-colors"
                           >
                             {tag}
                           </Badge>
@@ -118,6 +131,28 @@ const Projects = () => {
           </Tooltip>
         ))}
       </div>
+
+      {projects.length > 6 && (
+        <div className="flex justify-center mt-8">
+          <Button 
+            onClick={() => setShowAllProjects(!showAllProjects)}
+            variant="outline"
+            className="group"
+          >
+            {showAllProjects ? (
+              <>
+                Show Less
+                <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+              </>
+            ) : (
+              <>
+                Show All Projects
+                <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              </>
+            )}
+          </Button>
+        </div>
+      )}
     </Section>
   );
 };
