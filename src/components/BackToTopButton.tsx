@@ -37,10 +37,10 @@ const BackToTopButton = () => {
           variant="outline"
           size="icon"
           onClick={scrollToTop}
-          className="fixed bottom-28 right-8 rounded-full h-12 w-12 z-50 bg-black/20 dark:bg-black/40 backdrop-blur-sm text-white border-0 shadow-lg hover:bg-black/30 dark:hover:bg-black/50 focus:ring-2 focus:ring-primary focus:outline-none"
+          className="fixed bottom-24 right-8 rounded-full h-14 w-14 z-50 bg-black/20 dark:bg-black/40 backdrop-blur-sm text-white border-0 shadow-lg hover:bg-black/30 dark:hover:bg-black/50 focus:ring-2 focus:ring-primary focus:outline-none flex items-center justify-center"
           aria-label="Back to top"
         >
-          <ArrowUp size={20} />
+          <ArrowUp size={22} />
         </Button>
       )}
     </>

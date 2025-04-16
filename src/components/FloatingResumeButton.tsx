@@ -42,9 +42,9 @@ const FloatingResumeButton = () => {
               whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="flex items-center justify-center bg-cyan-700 text-white p-4 rounded-full shadow-2xl hover:shadow-xl transition-all duration-300 w-16 h-16"
+              className="flex items-center justify-center bg-cyan-700 text-white rounded-full shadow-2xl hover:shadow-xl transition-all duration-300 w-14 h-14"
             >
-              <FileText size={28} className="text-white" />
+              <FileText size={22} className="text-white" />
             </motion.a>
           </TooltipTrigger>
           <TooltipContent side="left" className="bg-background/80 backdrop-blur-sm border-primary/10">
