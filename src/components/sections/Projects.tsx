@@ -35,6 +35,13 @@ const Projects = () => {
       tags: ['Supply Chain', 'Market Entry', 'Retail Partnership'],
       caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d9080d8b6e3f5c7e1dd8467&pm=c'
     },
+    {
+      title: 'ML for Retail Sales Forecasting',
+      subtitle: 'Walmart Sales Prediction',
+      description: 'Explored machine learning techniques to predict weekly sales for a multinational retail store chain.',
+      tags: ['Machine Learning', 'Forecasting', 'Retail Analytics'],
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b9d23124d90807bb6becc6126c79a8a&pm=c'
+    },
   ];
 
   return (
