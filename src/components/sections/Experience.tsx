@@ -1,3 +1,4 @@
+
 import Section from '@/components/Section';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
@@ -36,7 +37,7 @@ const Experience = () => {
 
   const experiences = [
     {
-      role: 'Forecasting Analyst',
+      role: 'Forecasting Analyst - Supply Chain',
       company: 'Thermo Fisher Scientific',
       period: 'Aug 2024 - Dec 2024',
       description: 'Designed predictive models using Python (including RNNs & collaborative filter) to forecast customer growth and recommend "next best" products across 400+ product categories, 700+ SKUs, and 62,000+ customers, driving data-backed sales strategies.',
@@ -82,3 +83,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
