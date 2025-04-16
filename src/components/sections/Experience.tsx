@@ -61,7 +61,7 @@ const Experience = () => {
     {
       role: 'Business Analyst - Supply Chain Optimization',
       company: 'Vestas Pharmaceuticals',
-      period: 'May 2023 - Nov 2023',
+      period: 'May 2023 - Dec 2023',
       description: 'Revamped supply chain and procurement workflows, resolving bottlenecks and increasing process efficiency by 20% through data-driven analysis and optimization strategies.',
       tools: 'Tableau, Excel, SQL, Agile',
       achievements: [
@@ -71,6 +71,30 @@ const Experience = () => {
         'Designed a sales forecasting model, improving resource allocation and cost budgeting accuracy by 15%',
         'Conducted market research on supplier trends and pricing, enabling data-driven procurement decisions',
         'Developed a landed cost estimation template and established 3PL strategic partnership, streamlining supplier selection'
+      ]
+    },
+    {
+      role: 'Associate Consultant Business Analyst',
+      company: 'ZoomRx',
+      period: 'Feb 2021 - May 2023',
+      description: 'Collaborated with cross-functional teams to deliver strategic business insights and drive organizational growth through comprehensive data analysis and consulting.',
+      tools: 'Business Analysis, Data Visualization, Strategic Planning',
+      achievements: [
+        'Supported key business decision-making processes through detailed data analysis',
+        'Developed comprehensive business reports and presentations',
+        'Assisted in identifying potential business opportunities and improvement areas'
+      ]
+    },
+    {
+      role: 'Data Analyst Intern',
+      company: 'Chevrolet',
+      period: 'Feb 2020 - July 2020',
+      description: 'Gained hands-on experience in data collection, analysis, and reporting within the automotive industry.',
+      tools: 'Data Analysis, Excel, Basic Statistical Tools',
+      achievements: [
+        'Supported data-driven decision-making processes',
+        'Assisted in compiling and analyzing market research data',
+        'Developed foundational skills in data visualization and interpretation'
       ]
     }
   ];
@@ -166,3 +190,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
