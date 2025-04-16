@@ -26,11 +26,11 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Retail Store Performance Analysis',
-      description: 'A comprehensive analytics project that measures and visualizes retail store performance metrics. Helped identify key growth opportunities and operational inefficiencies across multiple store locations.',
-      tags: ['Python', 'SQL', 'Tableau', 'Excel'],
+      title: 'Retail Store Performance Analysis Project | Green River Outdoor, Boston Metro Area',
+      description: 'This project aimed to enhance data-driven decision-making for Green River Outdoor (GRO), a prominent retailer in the outdoor goods sector. The focus was on analyzing customer satisfaction, transaction data, and profitability across five store locations in the Boston metro area.',
+      tags: ['Pandas', 'Python', 'SciPy', 'Statistical Analysis', 'Hypothesis Tests', 'Logistic Regression'],
       image: '/lovable-uploads/3464853a-6072-4a83-8ee8-b7e678764433.png',
-      caseStudyLink: 'https://notion.so/retail-store-analysis'
+      caseStudyLink: 'https://neat-tumble-2ce.notion.site/Project-Portfolio-1b8d23124d9080199ce5f0f3f9a10662?p=1b8d23124d90805d9998cc4fb47c7259&pm=c'
     },
     {
       title: 'Data Visualizer Pro',
