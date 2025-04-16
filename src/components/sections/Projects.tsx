@@ -76,7 +76,7 @@ const Projects = () => {
     },
   ];
 
-  const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 8);
 
   return (
     <Section id="projects">
@@ -132,7 +132,7 @@ const Projects = () => {
         ))}
       </div>
 
-      {projects.length > 6 && (
+      {projects.length > 8 && (
         <div className="flex justify-center mt-8">
           <Button 
             onClick={() => setShowAllProjects(!showAllProjects)}
