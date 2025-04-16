@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Code, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { toast } from '@/components/ui/use-toast';
 
 const Projects = () => {
   const [showAllProjects, setShowAllProjects] = useState(false);
@@ -76,7 +77,17 @@ const Projects = () => {
     },
   ];
 
-  // Display 8 projects initially, then all on button click
+  const toggleShowAllProjects = () => {
+    setShowAllProjects(!showAllProjects);
+    if (!showAllProjects) {
+      toast({
+        title: "Showing all projects",
+        description: "Now displaying all 9 projects"
+      });
+    }
+  };
+
+  // Display first 8 projects initially, then all on button click
   const visibleProjects = showAllProjects ? projects : projects.slice(0, 8);
 
   return (
@@ -137,23 +148,32 @@ const Projects = () => {
 
       {projects.length > 8 && (
         <div className="flex justify-center mt-8">
-          <Button 
-            onClick={() => setShowAllProjects(!showAllProjects)}
-            variant="secondary"
-            className="group bg-primary/20 text-primary hover:bg-primary/30 border border-primary/30 shadow-md font-medium"
-          >
-            {showAllProjects ? (
-              <>
-                Show Less
-                <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-              </>
-            ) : (
-              <>
-                Show All Projects
-                <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-              </>
-            )}
-          </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button 
+                  onClick={toggleShowAllProjects}
+                  variant="default"
+                  className="group font-medium border shadow-md"
+                >
+                  {showAllProjects ? (
+                    <>
+                      Show Less
+                      <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+                    </>
+                  ) : (
+                    <>
+                      Show All Projects ({projects.length})
+                      <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+                    </>
+                  )}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{showAllProjects ? "Show fewer projects" : "View all 9 projects"}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       )}
     </Section>
