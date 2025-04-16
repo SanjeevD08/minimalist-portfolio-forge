@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useToast } from '@/hooks/use-toast';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FloatingResumeButton = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { toast } = useToast();
+  const isMobile = useIsMobile();
 
   const handleDownload = () => {
     // Add download logic here
@@ -19,7 +21,7 @@ const FloatingResumeButton = () => {
   };
 
   return (
-    <div className="fixed right-6 bottom-24 z-40">
+    <div className={`fixed ${isMobile ? 'right-4 bottom-20' : 'right-6 bottom-28'} z-40`}>
       <TooltipProvider>
         <Tooltip>
           <AnimatePresence>
@@ -58,9 +60,9 @@ const FloatingResumeButton = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsExpanded(true)}
-                  className="flex items-center justify-center glass-card bg-primary/20 text-primary p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="flex items-center justify-center glass-card bg-primary/20 text-primary p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-12 h-12"
                 >
-                  <FileText size={22} />
+                  <FileText size={20} />
                 </motion.button>
               </TooltipTrigger>
             )}

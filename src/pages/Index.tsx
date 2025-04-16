@@ -46,9 +46,9 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <FloatingResumeButton />
       <BackToTopButton />
       <HorizontalDock />
-      <FloatingResumeButton />
     </div>
   );
 };
