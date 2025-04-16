@@ -19,7 +19,7 @@ const FloatingResumeButton = () => {
   };
 
   return (
-    <div className={`fixed ${isMobile ? 'right-4 bottom-20' : 'right-6 bottom-8'} z-40`}>
+    <div className={`fixed ${isMobile ? 'right-4 bottom-24' : 'right-8 bottom-12'} z-50`}>
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
@@ -28,21 +28,23 @@ const FloatingResumeButton = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleDownload}
-              initial={{ scale: 0.8 }}
+              initial={{ scale: 0.8, opacity: 0.7 }}
               animate={{ 
                 scale: 1,
-                backgroundColor: isHovered ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)'
+                opacity: 1,
+                backgroundColor: isHovered ? 'rgba(0, 0, 0, 0.4)' : 'rgba(0, 0, 0, 0.2)'
               }}
               whileHover={{ 
                 scale: 1.1,
-                backgroundColor: 'rgba(0, 0, 0, 0.3)'
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                boxShadow: '0 0 15px rgba(255,255,255,0.3)'
               }}
               whileTap={{ scale: 0.95 }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="flex items-center justify-center glass-card text-primary p-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 w-10 h-10"
+              className="flex items-center justify-center glass-card text-primary p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 w-12 h-12"
             >
-              <FileText size={18} />
+              <FileText size={22} className="text-white" />
             </motion.a>
           </TooltipTrigger>
           <TooltipContent side="left" className="bg-background/80 backdrop-blur-sm border-primary/10">
