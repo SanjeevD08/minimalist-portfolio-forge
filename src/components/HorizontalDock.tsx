@@ -23,6 +23,10 @@ const data = [{
   icon: <Activity className='h-full w-full text-white' />,
   href: '#projects'
 }, {
+  title: 'Resume',
+  icon: <ScrollText className='h-full w-full text-white' />,
+  href: '#resume'
+}, {
   title: 'Contact',
   icon: <Mail className='h-full w-full text-white' />,
   href: '#contact'
