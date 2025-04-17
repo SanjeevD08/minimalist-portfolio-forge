@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.background-emblem {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}

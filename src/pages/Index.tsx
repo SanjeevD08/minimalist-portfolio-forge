@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import BackToTopButton from '@/components/BackToTopButton';
 import { HorizontalDock } from '@/components/HorizontalDock';
 import FloatingResumeButton from '@/components/FloatingResumeButton';
+import BackgroundEmblem from '@/components/BackgroundEmblem';
 
 const Index = () => {
   useEffect(() => {
@@ -36,6 +37,7 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
+      <BackgroundEmblem />
       <Navbar />
       <main>
         <Hero />
