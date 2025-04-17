@@ -3,12 +3,10 @@ import Section from '@/components/Section';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     if (sectionRef.current && photoRef.current && contentRef.current) {
@@ -41,14 +39,11 @@ const About = () => {
         }
       });
     }
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
-
-  return (
-    <div ref={sectionRef}>
+  return <div ref={sectionRef}>
       <Section id="about">
         <h2 className="section-title mb-10">About Me</h2>
         
@@ -71,9 +66,7 @@ const About = () => {
               </p>
               
               <div className="space-y-6 leading-relaxed">
-                <p className="text-muted-foreground">
-                  Hey, I'm Sanjeev a supply chain and business analytics professional with a passion for solving real-world problems using data. My journey started in automobile engineering, where I led logistics and inventory efforts for SRM University's quad bike team. That hands-on experience planted the seed for my interest in supply chain, though I didn't realize it at the time.
-                </p>
+                <p className="text-muted-foreground">Hey, I'm Sanjeev Dhanush Challapalli a supply chain and business analytics professional with a passion for solving real-world problems using data. My journey started in automobile engineering, where I led logistics and inventory efforts for SRM University's quad bike team. That hands-on experience planted the seed for my interest in supply chain, though I didn't realize it at the time.</p>
                 
                 <p className="text-muted-foreground">
                   After working in consulting, I landed a role at Vestas Pharmaceuticals and that's where everything clicked. I was deep into data and operations, and I knew I'd found my space. The pandemic pushed me further into data. I spent time exploring analytics, reading MIT Sloan papers, and sharpening my skills leading to my master's in Business Analytics at Northeastern.
@@ -87,8 +80,6 @@ const About = () => {
           </div>
         </div>
       </Section>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
