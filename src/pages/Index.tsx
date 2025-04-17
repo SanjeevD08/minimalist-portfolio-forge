@@ -12,6 +12,7 @@ import BackToTopButton from '@/components/BackToTopButton';
 import { HorizontalDock } from '@/components/HorizontalDock';
 import FloatingResumeButton from '@/components/FloatingResumeButton';
 import BackgroundEmblem from '@/components/BackgroundEmblem';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   useEffect(() => {
@@ -38,6 +39,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
       <BackgroundEmblem />
+      <ThemeToggle />
       <Navbar />
       <main>
         <Hero />
